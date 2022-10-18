@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+        
         function add(x, y){
             return x + y
         }
@@ -24,11 +25,31 @@
             return x / y
         }
 
-        function operate(){
+        function operate(firstNumber, secondNumber, operator){
+            switch (operator){
+                case '+':
+                    return add(firstNumber, secondNumber);
+                    break;
+                
+                case '-':
+                    return subtract(firstNumber, secondNumber)
+                    break;
+                
+                case '*':
+                    return multiply(firstNumber, secondNumber)
+                    break;
+                
+                case '/':
+                    return divide(firstNumber, secondNumber)
+                    break;
+            }
             
+            
+
         }
 
-    console.log(operate(27, 9))
+
+    console.log(operate(4, 9, "*"))
 
     </script>
 </body>
