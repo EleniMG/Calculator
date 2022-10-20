@@ -1,0 +1,12 @@
+#grid {
+    height: 75vh;
+    width: 50vw;
+    background: repeating-linear-gradient(#004b50, #46abb0 150px);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+
+    gap: 20px;
+
+
+}
