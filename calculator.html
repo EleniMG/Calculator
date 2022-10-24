@@ -75,13 +75,15 @@
         // Creating Display
         let displayValue = 0
         document.getElementById("display").innerHTML = displayValue;
-        let onCalcScreen = document.getElementById("grid").addEventListener("click", calculate);
-
+        let onCalcScreen = document.querySelectorAll('button').forEach(button => button.addEventListener("click", calculate));
+        let elementString = ""
         
-        function calculate(firstNumber, secondNumber, operator){
-            console.log(onCalcScreen)
 
-            
+        //Calculator
+        function calculate(event){
+            const elementValue = event.target.value
+            elementString += elementValue
+            console.log(elementString)
         }
 
     </script>
