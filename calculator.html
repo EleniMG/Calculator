@@ -114,6 +114,15 @@
                 return
             }
 
+            if (!operator || !secondNumber){
+                alert("I need a complete sum!")
+                displayValue = 0
+                elementString = 0
+                document.getElementById("display").innerHTML = displayValue;
+                return
+            }
+
+
             if(event.target.value == '='){
                  displayValue = operate(firstNumber, secondNumber, operator).toFixed(2)
                  document.getElementById("display").innerHTML = displayValue;
