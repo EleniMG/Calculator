@@ -109,7 +109,7 @@
             if (operator === "/" && secondNumber === 0){
                 alert("DON'T THINK SO, MATE!")
                 displayValue = 0
-                elementString = 0
+                elementString = ""
                 document.getElementById("display").innerHTML = displayValue;
                 return
             }
@@ -117,20 +117,26 @@
             if (!operator || !secondNumber){
                 alert("I need a complete sum!")
                 displayValue = 0
-                elementString = 0
+                elementString = ""
                 document.getElementById("display").innerHTML = displayValue;
                 return
             }
 
 
             if(event.target.value == '='){
-                 displayValue = operate(firstNumber, secondNumber, operator).toFixed(2)
-                 document.getElementById("display").innerHTML = displayValue;
+                displayValue = operate(firstNumber, secondNumber, operator)
+                if (Number.isInteger(displayValue)){
+                    displayValue = displayValue.toFixed(0);
+                } else {
+                    displayValue = displayValue.toFixed(2)               
+                }
+                
+                document.getElementById("display").innerHTML = displayValue;
             } 
 
             if (event.target.value === 'clear'){
                 displayValue = 0
-                elementString = 0
+                elementString = ""
                 document.getElementById("display").innerHTML = displayValue;
             }
 
