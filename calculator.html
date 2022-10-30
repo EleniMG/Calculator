@@ -106,16 +106,25 @@
             const firstNumber = parseInt(firstString)
             const secondNumber = parseInt(secondString)
 
-            if(event.target.value == '='){
-                 displayValue = operate(firstNumber, secondNumber, operator)
-                 document.getElementById("display").innerHTML = displayValue;
+            if (operator === "/" && secondNumber === 0){
+                alert("DON'T THINK SO, MATE!")
+                displayValue = 0
+                elementString = 0
+                document.getElementById("display").innerHTML = displayValue;
+                return
             }
+
+            if(event.target.value == '='){
+                 displayValue = operate(firstNumber, secondNumber, operator).toFixed(2)
+                 document.getElementById("display").innerHTML = displayValue;
+            } 
 
             if (event.target.value === 'clear'){
                 displayValue = 0
                 elementString = 0
                 document.getElementById("display").innerHTML = displayValue;
             }
+
         }
 
     
