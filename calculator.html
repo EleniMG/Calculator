@@ -10,22 +10,22 @@
 </head>
 <body>
     <div id="grid">
-        <button id="one" value="1">1</button>
-        <button id="two" value="2">2</button>
-        <button id="three" value="3">3</button>
-        <button id="four" value="4">4</button>
-        <button id="five" value="5">5</button>
-        <button id="six" value="6">6</button>
-        <button id="seven" value="7">7</button>
-        <button id="eight" value="8">8</button>
-        <button id="nine" value="9">9</button>
-        <button id="zero" value="0">0</button>
-        <button id="plus" value="+">+</button>
-        <button id="subtract" value="-">-</button>
-        <button id="multiply" value="*">x</button>
-        <button id="divide" value="/">/</button>
-        <button id="equals" value="=">=</button>
-        <button id="clear" value="clear"> <img src="https://s3.memeshappen.com/memes/yo-is-tha-coast-clear--meme-2268.jpg"></button>
+        <button id="one" value="1" aria-label="numAndOps">1</button>
+        <button id="two" value="2" aria-label="numAndOps">2</button>
+        <button id="three" value="3" aria-label="numAndOps">3</button>
+        <button id="four" value="4" aria-label="numAndOps">4</button>
+        <button id="five" value="5" aria-label="numAndOps">5</button>
+        <button id="six" value="6" aria-label="numAndOps">6</button>
+        <button id="seven" value="7" aria-label="numAndOps">7</button>
+        <button id="eight" value="8" aria-label="numAndOps">8</button>
+        <button id="nine" value="9" aria-label="numAndOps">9</button>
+        <button id="zero" value="0" aria-label="numAndOps">0</button>
+        <button id="plus" value="+" aria-label="numAndOps">+</button>
+        <button id="subtract" value="-" aria-label="numAndOps">-</button>
+        <button id="multiply" value="*" aria-label="numAndOps">x</button>
+        <button id="divide" value="/" aria-label="numAndOps">/</button>
+        <button id="equals" value="=" aria-label="equalsAndClear">=</button>
+        <button id="clear" value="clear" aria-label="equalsAndClear"> <img src="https://s3.memeshappen.com/memes/yo-is-tha-coast-clear--meme-2268.jpg"></button>
         <div id="display"></div>
 
     </div>
@@ -75,25 +75,50 @@
         // Creating Display
         let displayValue = 0
         document.getElementById("display").innerHTML = displayValue;
-        let onCalcScreen = document.querySelectorAll('button').forEach(button => button.addEventListener("click", calculate));
+        let buttons = document.querySelectorAll('[aria-label="numAndOps"]').forEach(button => button.addEventListener("click", digits));
         let elementString = ""
         
 
-        //Calculator
-        function calculate(event){
+        //Recognising the first number, operator and second number
+        function digits(event){
             const elementValue = event.target.value
             elementString += elementValue
+
+            document.getElementById("display").innerHTML = elementString;
             
 
-            let firstNumber = elementString.match(/^[0-9]+[^-/*+x]/)
-            let opAndSecNumber = elementString.match(/[-+/*x][0-9]+$/).join("")
-            let operator = opAndSecNumber.match(/[-+/*x]/)
-            let secondNumber = opAndSecNumber.match(/[0-9]+$/)
+            // let firstNumber = elementString.match(/^[0-9]*[^-/*+x]/)
+            // let opAndSecNumber = elementString.match(/[-+/*x][0-9]+$/).join("")
+            // let operator = opAndSecNumber.match(/[-+/*x]/)
+            // let secondNumber = opAndSecNumber.match(/[0-9]+$/)
 
-            console.log(firstNumber, operator, secondNumber)
-        
+    
+            // console.log(firstNumber, operator, secondNumber)
+            console.log({elementString})
+        }
 
+
+        let result = document.querySelectorAll('[aria-label="equalsAndClear"]').forEach(button => button.addEventListener("click", calculate));
+
+        function calculate(){
+
+            const [firstString, operator, secondString] = elementString.split(/([-+/*x])/)
+            const firstNumber = parseInt(firstString)
+            const secondNumber = parseInt(secondString)
+
+            if(event.target.value == '='){
+                 displayValue = operate(firstNumber, secondNumber, operator)
+                 document.getElementById("display").innerHTML = displayValue;
             }
+
+            if (event.target.value === 'clear'){
+                displayValue = 0
+                elementString = 0
+                document.getElementById("display").innerHTML = displayValue;
+            }
+        }
+
+    
 
     </script>
 

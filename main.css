@@ -179,11 +179,13 @@ button {
     justify-content: flex-start;
     align-items: center;
 
+
 }
 
-img {
+#clear > img {
     max-width: 100%;
     height: auto;
+    pointer-events: none;
 }
 
 #display {
