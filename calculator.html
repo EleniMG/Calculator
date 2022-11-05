@@ -127,7 +127,7 @@
             if(event.target.value == '='){
                 
                 displayValue = operate(firstNumber, secondNumber, operator)
-                let result = displayValue                     
+                let total = displayValue                     
 
                 if (Number.isInteger(displayValue)){
                     displayValue = displayValue.toFixed(0);
@@ -137,10 +137,10 @@
                 
                 document.getElementById("display").innerHTML = displayValue;                            
             
-                if(result != 0){
+                if(total != 0){
                     elementString = displayValue
-                    displayValue = operate(result, secondNumber, operator);
-                    document.getElementById("display").innerHTML = result   
+                    displayValue = operate(total, secondNumber, operator);
+                    document.getElementById("display").innerHTML = total   
                 }
             
             } 
