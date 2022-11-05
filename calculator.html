@@ -105,7 +105,7 @@
             const [firstString, operator, secondString] = elementString.split(/([-+/*x])/)
             const firstNumber = parseInt(firstString)
             const secondNumber = parseInt(secondString)
-
+                        
             if (operator === "/" && secondNumber === 0){
                 alert("DON'T THINK SO, MATE!")
                 displayValue = 0
@@ -123,15 +123,26 @@
             }
 
 
+            
             if(event.target.value == '='){
+                
                 displayValue = operate(firstNumber, secondNumber, operator)
+                let result = displayValue                     
+
                 if (Number.isInteger(displayValue)){
                     displayValue = displayValue.toFixed(0);
                 } else {
                     displayValue = displayValue.toFixed(2)               
                 }
                 
-                document.getElementById("display").innerHTML = displayValue;
+                document.getElementById("display").innerHTML = displayValue;                            
+            
+                if(result != 0){
+                    elementString = displayValue
+                    displayValue = operate(result, secondNumber, operator);
+                    document.getElementById("display").innerHTML = result   
+                }
+            
             } 
 
             if (event.target.value === 'clear'){
@@ -139,6 +150,8 @@
                 elementString = ""
                 document.getElementById("display").innerHTML = displayValue;
             }
+
+            
 
         }
 
