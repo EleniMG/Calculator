@@ -126,15 +126,22 @@
                 if (Number.isInteger(displayValue)){
                     displayValue = displayValue.toFixed(0);
                 } else {
-                    displayValue = displayValue.toFixed(2)               
+                    displayValue = displayValue.toFixed(2)            
                 }
                 
                 document.getElementById("display").innerHTML = displayValue;                            
             
-                if(total != 0){
+                if(total != 0 && operator && secondNumber){
                     elementString = displayValue
                     displayValue = operate(total, secondNumber, operator);
-                    document.getElementById("display").innerHTML = total   
+
+                    if (Number.isInteger(total)){
+                    total = total.toFixed(0);
+                    } else {
+                    total = total.toFixed(2)            
+                    }
+
+                    document.getElementById("display").innerHTML = total  
                 }
 
                 if (!operator || !secondNumber){
@@ -143,7 +150,7 @@
                 elementString = ""
                 document.getElementById("display").innerHTML = displayValue;
                 return
-            }
+                }
             
             } 
 
