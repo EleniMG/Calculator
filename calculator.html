@@ -114,13 +114,7 @@
                 return
             }
 
-            if (!operator || !secondNumber){
-                alert("I need a complete sum!")
-                displayValue = 0
-                elementString = ""
-                document.getElementById("display").innerHTML = displayValue;
-                return
-            }
+            
 
 
             
@@ -142,6 +136,14 @@
                     displayValue = operate(total, secondNumber, operator);
                     document.getElementById("display").innerHTML = total   
                 }
+
+                if (!operator || !secondNumber){
+                alert("I need a complete sum!")
+                displayValue = 0
+                elementString = ""
+                document.getElementById("display").innerHTML = displayValue;
+                return
+            }
             
             } 
 
