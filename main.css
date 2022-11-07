@@ -172,6 +172,16 @@ button {
 
 }
 
+#decimal {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px
+
+}
+
 #clear {
     grid-column: 1 / 2;
     grid-row: 1 / 2;

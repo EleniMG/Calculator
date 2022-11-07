@@ -20,6 +20,7 @@
         <button id="eight" value="8" aria-label="numAndOps">8</button>
         <button id="nine" value="9" aria-label="numAndOps">9</button>
         <button id="zero" value="0" aria-label="numAndOps">0</button>
+        <button id="decimal" value="." aria-label="numAndOps">.</button>
         <button id="plus" value="+" aria-label="numAndOps">+</button>
         <button id="subtract" value="-" aria-label="numAndOps">-</button>
         <button id="multiply" value="*" aria-label="numAndOps">x</button>
@@ -103,8 +104,8 @@
         function calculate(){
 
             const [firstString, operator, secondString] = elementString.split(/([-+/*x])/)
-            const firstNumber = parseInt(firstString)
-            const secondNumber = parseInt(secondString)
+            const firstNumber = parseFloat(firstString)
+            const secondNumber = parseFloat(secondString)
                         
             if (operator === "/" && secondNumber === 0){
                 alert("DON'T THINK SO, MATE!")
@@ -131,7 +132,7 @@
                 
                 document.getElementById("display").innerHTML = displayValue;                            
             
-                if(total != 0 && operator && secondNumber){
+                if(total != 0){
                     elementString = displayValue
                     displayValue = operate(total, secondNumber, operator);
 
@@ -151,6 +152,12 @@
                 document.getElementById("display").innerHTML = displayValue;
                 return
                 }
+
+                // if (total != 0 && !secondNumber){
+                //     elementString = displayValue
+                //     displayValue = operate(total, secondNumber, operator);
+                //     document.getElementById("display").innerHTML = displayValue 
+                // }
             
             } 
 
