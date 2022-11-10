@@ -145,7 +145,7 @@
                     document.getElementById("display").innerHTML = total  
                 }
 
-                if (!operator || !secondNumber){
+                if (!operator || secondNumber == null){
                 alert("I need a complete sum!")
                 displayValue = 0
                 elementString = ""
@@ -153,12 +153,16 @@
                 return
                 }
 
-                // if (total != 0 && !secondNumber){
-                //     elementString = displayValue
-                //     displayValue = operate(total, secondNumber, operator);
-                //     document.getElementById("display").innerHTML = displayValue 
+                // if(){
+                //     displayValue = operate(total, secondNumber, operator)
+                //     let total = displayValue
+                //     document.getElementById("display").innerHTML = total
                 // }
-            
+                
+                
+
+
+               
             } 
 
             if (event.target.value === 'clear'){
