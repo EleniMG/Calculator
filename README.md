@@ -1,7 +1,7 @@
 # Calculator
 
 ## Instructions:
-1. Open the [Calculator](https://github.com/EleniMG/Calculator)
+1. Open the [Calculator](https://calculator-by-eleni.netlify.app/)
 2. Calculate to your heart's content
 
 
